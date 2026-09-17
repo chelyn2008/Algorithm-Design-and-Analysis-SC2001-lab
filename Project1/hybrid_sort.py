@@ -9,7 +9,7 @@ def HybridMergeSort(A, left, right, S):
         left_comparisons = HybridMergeSort(A, left, mid, S)
         right_comparisons = HybridMergeSort(A, mid + 1, right, S)
 
-        merge_comparisons = Merge(A, left, mid, right)
+        merge_comparisons = Merge(A, left, mid, right) # all working on the same array, in-place sorting.
 
         return left_comparisons + right_comparisons + merge_comparisons
 
