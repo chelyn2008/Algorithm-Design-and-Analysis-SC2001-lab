@@ -18,12 +18,12 @@ def InsertionSort(A, left, right):
     for i in range(left+1, right+1): # python does not include last value, so want right to be included
         key = A[i]
         j = i-1
-        while j >= left: # checking if the value is bigger than the one before it
+        while j >= left: 
             comparisons += 1
-            if A[j] > key:
+            if A[j] > key: # checking if the value is bigger than the key before it
                 A[j + 1] = A[j]
-                j -= 1 # shifting j to the right
-            else: # value is not bigger than the one on the right
+                j -= 1 # shifting j to the left
+            else: 
                 break
 
         A[j + 1] = key
