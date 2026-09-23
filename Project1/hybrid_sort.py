@@ -16,14 +16,14 @@ def HybridMergeSort(A, left, right, S):
 def InsertionSort(A, left, right):
     comparisons = 0
     for i in range(left+1, right+1): # python does not include last value, so want right to be included
-        key = A[i]
-        j = i-1
-        while j >= left: # checking if the value is bigger than the one before it
+        key = A[i] # selecting element to sort
+        j = i-1 # pointer to element before
+        while j >= left: # ensure pointer j is not out of range
             comparisons += 1
-            if A[j] > key:
+            if A[j] > key: # checking if the value is bigger than the key saved in A[i]
                 A[j + 1] = A[j]
-                j -= 1 # shifting j to the right
-            else: # value is not bigger than the one on the right
+                j -= 1 # shifting pointer j to the left to compare with value to the left
+            else: # value is not bigger than the key
                 break
 
         A[j + 1] = key
