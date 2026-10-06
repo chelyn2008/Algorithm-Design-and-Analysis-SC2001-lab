@@ -17,10 +17,10 @@ Each project has its own folder containing the relevant materials. Depending on 
 
 | Folder | Contents |
 | --- | --- |
-| [Project1](./Project1/) | Hybrid merge sort implementation, experimental analysis, datasets, results, and project materials. |
-| [Project2](./Project2/) | Project materials; currently contains the project PDF. |
-
-Additional project folders will be added as the module progresses.
+| [Project 1](./Project1/) | Hybrid merge sort implementation, experimental analysis, datasets, results, and project materials. |
+| [Project 2](./Project2/) | Dijkstra’s Algorithm |
+|
+| [Project 3() | | 
 
 ## Getting Started
 
