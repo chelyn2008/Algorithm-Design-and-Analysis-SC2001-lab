@@ -1,3 +1,10 @@
+from graph_generation import (
+    generate_edges,
+    to_adjacency_matrix
+)
+INF = float('inf')
+
+# Your Dijkstra function goes here
 def dijkstra(graph, source):
     V = len(graph)
     dist = [INF] * V # creating array for priority queue
@@ -30,7 +37,12 @@ def dijkstra(graph, source):
 
     return dist
 
-result = dijkstra(graph, 0)
+if __name__ == "__main__":
+    V = 100
+    E = 200
 
-for i, distance in enumerate(result):
-    print(f"{chr(65+i)}: {distance}")
+    edges = generate_edges(V, E)
+    graph = to_adjacency_matrix(V, edges)
+
+    result = dijkstra(graph, 0)
+    print(result)
