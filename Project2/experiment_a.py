@@ -1,10 +1,14 @@
 import time
 import statistics
 import matplotlib.pyplot as plt
+from pathlib import Path
+import csv
 
 from graph_generation import generate_edges, to_adjacency_matrix
 from Part_a import dijkstra
 
+RESULTS_DIR = Path(__file__).resolve().parent / "graphs"
+RESULTS_DIR.mkdir(exist_ok=True)
 
 # Measure Dijkstra's execution time
 def measure_runtime(graph, repeats=10):
@@ -84,7 +88,8 @@ def plot_results(vertex_results, edge_results):
     plt.ylabel("Execution Time (seconds)")
     plt.title("Dijkstra (Matrix + Array): Varying V")
     plt.grid(True)
-    plt.show()
+    plt.savefig(RESULTS_DIR / "part_a_varying_V.png", dpi=300)
+    
 
     # Experiment 2
     E_values = [r[0] for r in edge_results]
@@ -96,8 +101,17 @@ def plot_results(vertex_results, edge_results):
     plt.ylabel("Execution Time (seconds)")
     plt.title("Dijkstra (Matrix + Array): Varying E")
     plt.grid(True)
-    plt.show()
+    plt.savefig(RESULTS_DIR / "part_a_varying_E.png", dpi=300)
 
+def save_results(filename, results, headers):
+    filepath = RESULTS_DIR / filename
+
+    with open(filepath, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(headers)
+        writer.writerows(results)
+
+    print(f"Saved results to {filepath}")
 
 if __name__ == "__main__":
     print("Experiment 1: Varying V")
@@ -105,5 +119,22 @@ if __name__ == "__main__":
 
     print("\nExperiment 2: Varying E")
     edge_results = experiment_edges()
+
+    vertex_results = experiment_vertices()
+    edge_results = experiment_edges()
+
+    # Save numerical results
+    save_results(
+        "part_a_vertices.csv",
+        vertex_results,
+        ["Vertices (V)", "Median Runtime (s)"]
+    )
+
+    save_results(
+        "part_a_edges.csv",
+        edge_results,
+        ["Edges (E)", "Median Runtime (s)"]
+    )
+
 
     plot_results(vertex_results, edge_results)
