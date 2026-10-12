@@ -1,25 +1,11 @@
-INF = float('inf')
-
-# input graph (test correctness of algorithm)
-graph = [ 
-    [0,   4,   2, INF, INF, INF, INF],
-    [4,   0,   1,   5,  10, INF, INF],
-    [2,   1,   0, INF,   3, INF, INF],
-    [INF, 5, INF,   0,   2,   6, INF],
-    [INF,10,   3,   2,   0,   4,   7],
-    [INF,INF,INF,   6,   4,   0,   1],
-    [INF,INF,INF, INF,   7,   1,   0]
-]
-
-
 def dijkstra(graph, source):
     V = len(graph)
-    dist = [INF] * V
-    visited = [False] * V
+    dist = [INF] * V # creating array for priority queue
+    visited = [False] * V # to mark whether visited 
 
-    dist[source] = 0
+    dist[source] = 0 # setting starting vertex distance to be 0
 
-    for _ in range(V):
+    for _ in range(V): # going through each vertex
         min_dist = INF
         u = -1
 
