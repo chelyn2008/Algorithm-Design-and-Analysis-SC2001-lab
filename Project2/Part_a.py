@@ -14,7 +14,7 @@ def dijkstra(graph, source):
 
     for _ in range(V): # going through each vertex
         min_dist = INF
-        u = -1 # selected vertex 
+        u = -1 # current vertex 
 
         # Array-based minimum selection
         for v in range(V):
@@ -22,7 +22,7 @@ def dijkstra(graph, source):
                 min_dist = dist[v]
                 u = v
 
-        if u == -1:
+        if u == -1: # will be the last vertex
             break
 
         visited[u] = True
