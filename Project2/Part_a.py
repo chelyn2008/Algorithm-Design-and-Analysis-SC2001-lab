@@ -14,7 +14,7 @@ def dijkstra(graph, source):
 
     for _ in range(V): # going through each vertex
         min_dist = INF
-        u = -1
+        u = -1 # selected vertex 
 
         # Array-based minimum selection
         for v in range(V):
@@ -29,7 +29,8 @@ def dijkstra(graph, source):
 
         # Scan adjacency matrix row
         for v in range(V):
-            if not visited[v] and graph[u][v] != INF:
+            # there is a direct edge that exists between the 2 vertices
+            if not visited[v] and graph[u][v] != INF: 
                 new_dist = dist[u] + graph[u][v]
 
                 if new_dist < dist[v]:
