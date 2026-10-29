@@ -19,8 +19,7 @@ Each project has its own folder containing the relevant materials. Depending on 
 | --- | --- |
 | [Project 1](./Project1/) | Hybrid merge sort implementation, experimental analysis, datasets, results, and project materials. |
 | [Project 2](./Project2/) | Dijkstra’s Algorithm |
-|
-| [Project 3() | | 
+| [Project 3](./Project3/) | Dynamic Programming Knapsack | 
 
 ## Getting Started
 
